@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuevo Proyecto</title>
+</head>
+<body>
+<h1>Registrar un Nuevo Proyecto</h1>
+<form action="/registrarProyecto" method="post">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required><br><br>
+
+    <label for="cantidadAlumnos">Cantidad de Alumnos:</label>
+    <input type="text" id="CantidadAlumnos" name="cantidadAlumnos" required><br><br>
+
+    <label>Tipo:</label><br>
+    <input type="radio" id="finalizado" name="tipo" value="FIN" required>
+    <label for="finalizado">Finalizado</label><br>
+
+    <input type="radio" id="desarrollo" name="tipo" value="DES" required>
+    <label for="desarrollo">Desarrollo</label><br><br>
+
+    <input type="submit" value="Registrar">
+</form>
+
+<a href="/bienvenida">Regresar a la pantalla de Bienvenida</a><br>
+</body>
+</html>
