@@ -23,7 +23,6 @@ public class NuevoArticuloController {
 
     @GetMapping("/nuevo-articulo")
     public String mostrarNuevoArticulo(Model model) {
-        // Aquí puedes cargar las revistas generadas a nivel de código y pasarlas al modelo
         List<Revista> revistas = revistaRepository.buscarTodos();
         model.addAttribute("revistas", revistas);
         Articulo nuevoArticulo = new Articulo();
@@ -47,7 +46,7 @@ public class NuevoArticuloController {
         nuevoArticulo.setRevista(revistaRepository.obtenerPorISBN(revista));
 
         profesorAutenticado.getArticulosInvestigacion().add(nuevoArticulo);
-        return "redirect:/nuevo-articulo";
+        return "redirect:/bienvenida";
     }
 
     private List<Revista> generarRevistas() {
