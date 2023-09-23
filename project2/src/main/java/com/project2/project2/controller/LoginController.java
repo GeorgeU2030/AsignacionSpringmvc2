@@ -2,6 +2,8 @@ package com.project2.project2.controller;
 
 import com.project2.project2.model.Articulo;
 import com.project2.project2.model.ProyectoTerminal;
+import com.project2.project2.model.Revista;
+import com.project2.project2.repositories.revistaRepo;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,7 +24,7 @@ public class LoginController {
     public LoginController() {
         // Agrega profesores a la lista
         Profesor profesor1 = new Profesor("Leonardo", "internet","Posgrado", "Leonardo Bustamante");
-        Profesor profesor2 = new Profesor("Jhon", "internet" , "Posgrado","Jhon Arias");
+        Profesor profesor2 = new Profesor("Jhon", "internet" , "Posgrado","Jhon Vargas");
         List<Articulo> articulosInvestigacion1 = generarDatosArticulos1();
         List<ProyectoTerminal> proyectosTerminales1 = generarDatosProyectos1();
         profesor1.setArticulosInvestigacion(articulosInvestigacion1);
@@ -59,11 +61,11 @@ public class LoginController {
 
     private List<Articulo> generarDatosArticulos1() {
         List<Articulo> datosArticulos = new ArrayList<>();
+        List<Revista> revistas = revistaRepo.buscarTodos();
         for (int i = 1; i <= 5; i++) {
             Articulo articulo = new Articulo();
             articulo.setTitulo("Título " + i);
-            articulo.setNombreRevista("Revista " + i);
-            articulo.setCategoria("Indexada");
+            articulo.setRevista(revistas.get(1));
             articulo.setEstado("Aceptado");
             datosArticulos.add(articulo);
         }
@@ -71,11 +73,11 @@ public class LoginController {
     }
     private List<Articulo> generarDatosArticulos2() {
         List<Articulo> datosArticulos = new ArrayList<>();
+        List<Revista> revistas = revistaRepo.buscarTodos();
         for (int i = 10; i <= 15; i++) {
             Articulo articulo = new Articulo();
             articulo.setTitulo("Título " + i);
-            articulo.setNombreRevista("Revista " + i);
-            articulo.setCategoria("No Indexada");
+            articulo.setRevista(revistas.get(0));
             articulo.setEstado("Aceptado");
             datosArticulos.add(articulo);
         }
