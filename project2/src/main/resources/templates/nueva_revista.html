@@ -3,19 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva Revista</title>
+    <title>Registrar una Nueva Revista</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px;
             font-size: 28px;
-            color: #333;
+            margin: 0;
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         label {
+            display: block;
+            margin-bottom: 10px;
             font-size: 18px;
             color: #555;
         }
@@ -23,7 +38,7 @@
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            margin: 5px 0;
+            margin-bottom: 20px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
@@ -46,9 +61,11 @@
         }
 
         a {
-            font-size: 18px;
-            color: #007bff;
             text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+            margin-top: 10px;
+            display: inline-block;
         }
 
         a:hover {
@@ -59,18 +76,18 @@
 <body>
 <h1>Registrar una Nueva Revista</h1>
 <form action="/nueva-revista" method="post">
-    <label for="titulo">Título:</label><br>
-    <input type="text" id="titulo" name="titulo" required><br><br>
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required><br>
 
-    <label for="isbn">ISBN:</label><br>
-    <input type="text" id="isbn" name="isbn" required><br><br>
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" required><br>
 
     <label>Tipo:</label><br>
     <input type="radio" id="indexada" name="tipo" value="IDX" required>
     <label for="indexada">Indexada</label><br>
 
     <input type="radio" id="noIndexada" name="tipo" value="NOIDX" required>
-    <label for="noIndexada">No Indexada</label><br><br>
+    <label for="noIndexada">No Indexada</label><br>
 
     <input type="submit" value="Registrar">
 </form>

@@ -1,5 +1,6 @@
 package com.project2.project2.controller;
 
+import com.project2.project2.model.Profesor;
 import com.project2.project2.repositories.revistaRepo;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
