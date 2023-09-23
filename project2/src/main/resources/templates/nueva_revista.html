@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Revista</title>
+</head>
+<body>
+<h1>Registrar una Nueva Revista</h1>
+<form action="/registrarRevista" method="post">
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" name="titulo" required><br><br>
+
+    <label for="isbn">ISBN:</label>
+    <input type="text" id="isbn" name="isbn" required><br><br>
+
+    <label>Tipo:</label><br>
+    <input type="radio" id="indexada" name="tipo" value="IDX" required>
+    <label for="indexada">Indexada</label><br>
+
+    <input type="radio" id="noIndexada" name="tipo" value="NOIDX" required>
+    <label for="noIndexada">No Indexada</label><br><br>
+
+    <input type="submit" value="Registrar">
+</form>
+
+<a href="/nuevo-articulo">Regresar a la pantalla de Nuevo Artículo</a>
+</body>
+</html>
