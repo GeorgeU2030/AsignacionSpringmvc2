@@ -4,13 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenida</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
 
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #777;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 <h1>Bienvenido, Profesor</h1>
 <h2>Datos del Profesor</h2>
-<p>Grado Académico: [[${profesor.gradoAcademico}]]</p>
-<p>Nombre Completo: [[${profesor.nombreCompleto}]]</p>
+<p><strong>Grado Académico:</strong> [[${profesor.gradoAcademico}]]</p>
+<p><strong>Nombre Completo:</strong> [[${profesor.nombreCompleto}]]</p>
 
 <h2>Artículos de Investigación</h2>
 <table>
@@ -18,7 +59,6 @@
     <tr>
         <th>Título</th>
         <th>Nombre de Revista</th>
-        <th>Categoría</th>
         <th>Estado</th>
     </tr>
     </thead>
@@ -26,8 +66,7 @@
     <!-- Utiliza Thymeleaf o tu motor de plantillas para iterar sobre los artículos y mostrarlos aquí -->
     <tr th:each="articulo : ${articulosInvestigacion}">
         <td th:text="${articulo.titulo}"></td>
-        <td th:text="${articulo.nombreRevista}"></td>
-        <td th:text="${articulo.categoria}"></td>
+        <td th:text="${articulo.revista.titulo}"></td>
         <td th:text="${articulo.estado}"></td>
     </tr>
     </tbody>
@@ -54,7 +93,5 @@
 
 <p><a href="/nuevo-articulo">Registrar un Nuevo Artículo</a></p>
 <p><a href="/proyecto">Registrar un Nuevo Proyecto</a></p>
-
-
 </body>
 </html>

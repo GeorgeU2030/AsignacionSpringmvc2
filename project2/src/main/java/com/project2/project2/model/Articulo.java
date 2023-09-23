@@ -2,8 +2,7 @@ package com.project2.project2.model;
 
 public class Articulo {
         private String titulo;
-        private String nombreRevista;
-        private String categoria;
+        private Revista revista;
         private String estado;
 
         // Getters y setters...
@@ -11,10 +10,9 @@ public class Articulo {
     public Articulo(){
 
     }
-    public Articulo(String titulo, String nombreRevista, String categoria, String estado) {
+    public Articulo(String titulo, Revista revista, String estado) {
         this.titulo = titulo;
-        this.nombreRevista = nombreRevista;
-        this.categoria = categoria;
+        this.revista = revista;
         this.estado = estado;
     }
 
@@ -26,20 +24,12 @@ public class Articulo {
         this.titulo = titulo;
     }
 
-    public String getNombreRevista() {
-        return nombreRevista;
+    public Revista getRevista() {
+        return revista;
     }
 
-    public void setNombreRevista(String nombreRevista) {
-        this.nombreRevista = nombreRevista;
-    }
-
-    public String getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setRevista(Revista revista) {
+        this.revista = revista;
     }
 
     public String getEstado() {

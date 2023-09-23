@@ -11,6 +11,8 @@ public class Profesor {
     private List<Articulo> articulosInvestigacion = new ArrayList<>();
     private List<ProyectoTerminal> proyectosTerminales = new ArrayList<>();
 
+    private List<ProyectoTerminal> revistas = new ArrayList<>();
+
 
     public Profesor(String usuario, String contrasena, String gradoAcademico, String nombreCompleto) {
         this.usuario = usuario;
@@ -68,4 +70,7 @@ public class Profesor {
     public void setProyectosTerminales(List<ProyectoTerminal> proyectosTerminales) {
         this.proyectosTerminales = proyectosTerminales;
     }
+
+
+
 }

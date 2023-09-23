@@ -4,30 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuevo Artículo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        label {
+            font-size: 18px;
+            color: #555;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <h1>Registrar un Nuevo Artículo</h1>
-<form action="/registrarArticulo" method="post">
-    <label for="titulo">Título:</label>
+<form action="/nuevo-articulo" method="post">
+    <label for="titulo">Título:</label><br>
     <input type="text" id="titulo" name="titulo" required><br><br>
 
-    <label for="revista">Revista:</label>
+    <label for="revista">Revista:</label><br>
     <select id="revista" name="revista" required>
-        <option value="ISBN1">Revista 1</option>
-        <option value="ISBN2">Revista 2</option>
-        <option value="ISBN3">Revista 3</option>
-        <option value="ISBN4">Revista 4</option>
-        <option value="ISBN5">Revista 5</option>
+        <option th:each="revista : ${revistas}" th:value="${revista.isbn}" th:text="${revista.titulo}"></option>
     </select><br><br>
 
     <label>Estado:</label><br>
-    <input type="radio" id="aceptado" name="estado" value="ACP" required>
+    <input type="radio" id="aceptado" name="estado" value="Aceptado" required>
     <label for="aceptado">Aceptado</label><br>
 
-    <input type="radio" id="revision" name="estado" value="REV" required>
+    <input type="radio" id="revision" name="estado" value="Revision" required>
     <label for="revision">Revisión</label><br>
 
-    <input type="radio" id="desarrollo" name="estado" value="DES" required>
+    <input type="radio" id="desarrollo" name="estado" value="Desarrollo" required>
     <label for="desarrollo">Desarrollo</label><br><br>
 
     <input type="submit" value="Registrar">
