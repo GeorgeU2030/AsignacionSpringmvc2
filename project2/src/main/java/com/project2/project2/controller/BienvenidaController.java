@@ -26,10 +26,8 @@ public class BienvenidaController {
             // Agregar el objeto profesor al modelo
             model.addAttribute("profesor", profesor);
 
-            List<Articulo> articulosInvestigacion = generarDatosArticulos();
-
-            // Generar datos ficticios para los proyectos terminales
-            List<ProyectoTerminal> proyectosTerminales = generarDatosProyectos();
+            List<Articulo> articulosInvestigacion = profesor.getArticulosInvestigacion();
+            List<ProyectoTerminal> proyectosTerminales = profesor.getProyectosTerminales();
 
             // Agregar los datos al model
             model.addAttribute("articulosInvestigacion", articulosInvestigacion);
@@ -42,30 +40,6 @@ public class BienvenidaController {
         }
     }
 
-    // Método para generar datos ficticios para los artículos de investigación
-    private List<Articulo> generarDatosArticulos() {
-        List<Articulo> datosArticulos = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
-            Articulo articulo = new Articulo();
-            articulo.setTitulo("Título " + i);
-            articulo.setNombreRevista("Revista " + i);
-            articulo.setCategoria("Indexada");
-            articulo.setEstado("Aceptado");
-            datosArticulos.add(articulo);
-        }
-        return datosArticulos;
-    }
 
-    // Método para generar datos ficticios para los proyectos terminales
-    private List<ProyectoTerminal> generarDatosProyectos() {
-        List<ProyectoTerminal> datosProyectos = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
-            ProyectoTerminal proyecto = new ProyectoTerminal();
-            proyecto.setTitulo("Proyecto " + i);
-            proyecto.setCantidadAlumnos(i * 2); // Cantidad de alumnos ficticia
-            proyecto.setEstado("Finalizado");
-            datosProyectos.add(proyecto);
-        }
-        return datosProyectos;
-    }
+
 }
