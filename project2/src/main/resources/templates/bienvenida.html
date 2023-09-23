@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+
+</head>
+<body>
+<h1>Bienvenido, Profesor</h1>
+<h2>Datos del Profesor</h2>
+<p>Grado Académico: [[${profesor.gradoAcademico}]]</p>
+<p>Nombre Completo: [[${profesor.nombreCompleto}]]</p>
+
+<h2>Artículos de Investigación</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Nombre de Revista</th>
+        <th>Categoría</th>
+        <th>Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Utiliza Thymeleaf o tu motor de plantillas para iterar sobre los artículos y mostrarlos aquí -->
+    <tr th:each="articulo : ${articulosInvestigacion}">
+        <td th:text="${articulo.titulo}"></td>
+        <td th:text="${articulo.nombreRevista}"></td>
+        <td th:text="${articulo.categoria}"></td>
+        <td th:text="${articulo.estado}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Proyectos Terminales</h2>
+<table>
+    <thead>
+    <tr>
+        <th>Título</th>
+        <th>Cantidad de Alumnos</th>
+        <th>Estado</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Utiliza Thymeleaf o tu motor de plantillas para iterar sobre los proyectos y mostrarlos aquí -->
+    <tr th:each="proyecto : ${proyectosTerminales}">
+        <td th:text="${proyecto.titulo}"></td>
+        <td th:text="${proyecto.cantidadAlumnos}"></td>
+        <td th:text="${proyecto.estado}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/nuevoArticulo">Registrar un Nuevo Artículo</a></p>
+<p><a href="/nuevoProyecto">Registrar un Nuevo Proyecto</a></p>
+
+
+</body>
+</html>

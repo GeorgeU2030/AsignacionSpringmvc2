@@ -1,5 +1,6 @@
 package com.project2.project2.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,8 +19,8 @@ public class LoginController {
 
     public LoginController() {
         // Agrega profesores a la lista
-        listaProfesores.add(new Profesor("Leonardo", "internet"));
-        listaProfesores.add(new Profesor("Jhon", "internet"));
+        listaProfesores.add(new Profesor("Leonardo", "internet","Posgrado", "Leonardo Bustamante"));
+        listaProfesores.add(new Profesor("Jhon", "internet" , "Posgrado","Jhon Arias"));
     }
 
     @GetMapping("/")
@@ -28,11 +29,13 @@ public class LoginController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password, Model model) {
+    public String login(@RequestParam String username, @RequestParam String password, Model model, HttpSession session) {
         for (Profesor profesor : listaProfesores) {
             if (profesor.getUsuario().equals(username) && profesor.getContrasena().equals(password)) {
                 // En caso de validación exitosa, redirige a la página de bienvenida
-                return "welcome";
+                Profesor profesorAutenticado = profesor;
+                session.setAttribute("profesorAutenticado", profesorAutenticado);
+                return "redirect:/bienvenida";
             }
         }
         // En caso de validación fallida, muestra un mensaje de error
